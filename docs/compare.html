@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>似ている庭木の見分け方 - 植木屋ハルナミワークス</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media(min-width:600px) { .compare-grid { grid-template-columns: repeat(2, 1fr); } }
+        
+        .compare-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+            border-left: 5px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+        .compare-card:hover {
+            transform: translateX(5px);
+            border-left-color: var(--primary-color);
+        }
+        .compare-num {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ccc;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+        .compare-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">AI生成植木図鑑　byハルナミ</a></h1>
+            <p style="font-size: 1rem; margin-top:0.5rem;">似ている庭木の見分け方</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="profile-box" style="margin-bottom:3rem; max-width:100%;">
+            <p>見た目が似ていて区別がつきにくい庭木の見分け方をまとめました。<br>
+            花がない時期（冬場など）の識別ポイントも解説しています。</p>
+        </div>
+
+        <div class="compare-grid">
+
+        <a href="pages/compare/item_1.html" class="compare-card">
+            <span class="compare-num">01</span>
+            <span class="compare-title">1. キャラ vs イチイ</span>
+        </a>
+        
+        <a href="pages/compare/item_2.html" class="compare-card">
+            <span class="compare-num">02</span>
+            <span class="compare-title">2. ヤマボウシ vs ハナミズキ vs サンシュユ</span>
+        </a>
+        
+        <a href="pages/compare/item_3.html" class="compare-card">
+            <span class="compare-num">03</span>
+            <span class="compare-title">3. ツゲ vs イヌツゲ</span>
+        </a>
+        
+        <a href="pages/compare/item_4.html" class="compare-card">
+            <span class="compare-num">04</span>
+            <span class="compare-title">4. ツツジ類の見分け方</span>
+        </a>
+        
+        <a href="pages/compare/item_5.html" class="compare-card">
+            <span class="compare-num">05</span>
+            <span class="compare-title">5. モミジ類（カエデ類）</span>
+        </a>
+        
+        <a href="pages/compare/item_6.html" class="compare-card">
+            <span class="compare-num">06</span>
+            <span class="compare-title">6. ツバキ vs サザンカ</span>
+        </a>
+        
+        <a href="pages/compare/item_7.html" class="compare-card">
+            <span class="compare-num">07</span>
+            <span class="compare-title">7. コニファー類（針葉樹）</span>
+        </a>
+        
+        <a href="pages/compare/item_8.html" class="compare-card">
+            <span class="compare-num">08</span>
+            <span class="compare-title">8. トネリコ vs シマトネリコ</span>
+        </a>
+        
+        <a href="pages/compare/item_9.html" class="compare-card">
+            <span class="compare-num">09</span>
+            <span class="compare-title">9. 柑橘類（ミカン、キンカン、ユズ、レモン）</span>
+        </a>
+        
+        <a href="pages/compare/item_10.html" class="compare-card">
+            <span class="compare-num">10</span>
+            <span class="compare-title">10. バラ科（サクラ、モモ、ウメ等）</span>
+        </a>
+        
+        <a href="pages/compare/item_11.html" class="compare-card">
+            <span class="compare-num">11</span>
+            <span class="compare-title">11. キンモクセイ vs ギンモクセイ</span>
+        </a>
+        
+        <a href="pages/compare/item_12.html" class="compare-card">
+            <span class="compare-num">12</span>
+            <span class="compare-title">12. クロガネモチ vs オウゴンモチ</span>
+        </a>
+        
+        <a href="pages/compare/item_13.html" class="compare-card">
+            <span class="compare-num">13</span>
+            <span class="compare-title">13. シャラ vs ヒメシャラ</span>
+        </a>
+        
+        <a href="pages/compare/item_14.html" class="compare-card">
+            <span class="compare-num">14</span>
+            <span class="compare-title">14. トサミズキ vs ヒュウガミズキ</span>
+        </a>
+        
+        <a href="pages/compare/item_15.html" class="compare-card">
+            <span class="compare-num">15</span>
+            <span class="compare-title">15. ベリー類（低木果樹）</span>
+        </a>
+        
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="index.html" class="back-link">ホームに戻る</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="about.html">運営について</a>
+            <p>&copy; 2026 Harunami</p>
+        </div>
+    </footer>
+</body>
+</html>

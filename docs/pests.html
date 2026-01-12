@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庭木の病害虫・病気図鑑 - 植木屋ハルナミワークス</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .pest-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s;
+            border-left: 5px solid #ccc;
+        }
+        .pest-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .pest-card.pest { border-left-color: #e74c3c; } /* Red for bugs */
+        .pest-card.disease { border-left-color: #8e44ad; } /* Purple for diseases */
+        
+        .pest-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pest-tag {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: white;
+        }
+        .tag-pest { background: #e74c3c; }
+        .tag-disease { background: #8e44ad; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="index.html">AI生成植木図鑑　byハルナミ</a></h1>
+            <p style="font-size: 1rem; margin-top:0.5rem;">庭木の病害虫・病気図鑑</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <h2 class="section-header">害虫一覧</h2>
+        <div class="pest-grid">
+
+            <a href="pages/pests/aburamushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    アブラムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/kaigaramushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    カイガラムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/gunbaimushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    グンバイムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/kamemushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    カメムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/hadani.html" class="pest-card pest">
+                <div class="pest-title">
+                    ハダニ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/hamakimushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    ハマキムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/shinkuimushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    シンクイムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/koganemushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    コガネムシ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/kamikirimushi.html" class="pest-card pest">
+                <div class="pest-title">
+                    カミキリムシ （幼虫：テッポウムシ）
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/iraga.html" class="pest-card pest">
+                <div class="pest-title">
+                    イラガ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/amerikashirohitori.html" class="pest-card pest">
+                <div class="pest-title">
+                    アメリカシロヒトリ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/maimaiga.html" class="pest-card pest">
+                <div class="pest-title">
+                    マイマイガ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/chadokuga.html" class="pest-card pest">
+                <div class="pest-title">
+                    チャドクガ
+                    <span class="pest-tag tag-pest">害虫</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+        </div>
+
+        <h2 class="section-header">病気一覧</h2>
+        <div class="pest-grid">
+
+            <a href="pages/pests/udonko_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    うどんこ病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/kurohoshi_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    黒星病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/akahoshi_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    赤星病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/tanso_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    炭疽病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/haiirokabi_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    灰色かび病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/susu_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    すす病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/mochi_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    もち病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/dougare_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    胴枯病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/shiromonpa_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    白紋羽病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/kontouganshu_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    根頭がん腫病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+            <a href="pages/pests/mozaiku_byou.html" class="pest-card disease">
+                <div class="pest-title">
+                    モザイク病
+                    <span class="pest-tag tag-disease">病気</span>
+                </div>
+                <div style="font-size:0.9rem; color:#666;">詳細を見る →</div>
+            </a>
+    
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="index.html" class="back-link">ホームに戻る</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="about.html">運営について</a>
+            <p>&copy; 2026 Harunami</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1603 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庭木キャラ図鑑 - 植木屋ハルナミワークス</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Navigation Styles specific to zukan */
+        .nav-scroller {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(249, 249, 247, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid #ddd;
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            min-width: min-content;
+        }
+        
+        .nav-item { margin: 0 0.2rem; }
+        
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 700;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .nav-list { justify-content: flex-start; padding: 0 1rem; }
+        }
+
+        .section-header {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 3rem 0 1.5rem 0;
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner (Top) -->
+    <div style="width:100%; max-height:300px; overflow:hidden;">
+        <img src="images/zukan_banner.jpg" alt="庭木キャラ図鑑" style="width:100%; height:auto; object-fit:cover; display:block;">
+    </div>
+
+    <!-- Home Link (Below Banner) -->
+    <div style="text-align:center; margin: 1rem 0;">
+        <a href="index.html" class="back-link" style="padding: 0.5rem 1rem; font-size: 0.9rem;">ホームに戻る</a>
+    </div>
+
+    <!-- Index Navigation -->
+    <nav class="nav-scroller">
+        <ul class="nav-list">
+<li class="nav-item"><a href="#ア行" class="nav-link">ア</a></li><li class="nav-item"><a href="#カ行" class="nav-link">カ</a></li><li class="nav-item"><a href="#サ行" class="nav-link">サ</a></li><li class="nav-item"><a href="#タ行" class="nav-link">タ</a></li><li class="nav-item"><a href="#ナ行" class="nav-link">ナ</a></li><li class="nav-item"><a href="#ハ行" class="nav-link">ハ</a></li><li class="nav-item"><a href="#マ行" class="nav-link">マ</a></li><li class="nav-item"><a href="#ヤ行" class="nav-link">ヤ</a></li><li class="nav-item"><a href="#ラ行" class="nav-link">ラ</a></li><li class="nav-item"><a href="#ワ行" class="nav-link">ワ</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <h2 id="ア行" class="section-header">ア行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/アオキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アオキ.jpg" alt="アオキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アオキ</div>
+                    <div class="card-name-en">斑入りの品種は庭を明るくする。
+冬の赤い実と緑の葉の対比が美しい。</div>
+                </div>
+            </a>
+            
+            <a href="pages/アオハダ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アオハダ.png" alt="アオハダ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アオハダ</div>
+                    <div class="card-name-en">爽やかな枝葉と黄葉が魅力的。
+赤い実が美しく、シンボルツリーとしても人気。</div>
+                </div>
+            </a>
+            
+            <a href="pages/アカマツ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アカマツ.png" alt="アカマツ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アカマツ</div>
+                    <div class="card-name-en">優美な樹形が日本庭園に合う。
+建築材や燃料としても利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/アガベ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アガベ.jpg" alt="アガベ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アガベ</div>
+                    <div class="card-name-en">彫刻のような美しいフォルム。
+ドライガーデンやモダンな庭の主役に最適。</div>
+                </div>
+            </a>
+            
+            <a href="pages/アジサイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アジサイ.png" alt="アジサイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アジサイ</div>
+                    <div class="card-name-en">梅雨時期に美しい花を咲かせる。
+多様な花色と咲き方で観賞価値が高い。</div>
+                </div>
+            </a>
+            
+            <a href="pages/アセビ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アセビ.png" alt="アセビ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アセビ</div>
+                    <div class="card-name-en">早春に咲く可憐な花が魅力的。
+常緑で一年中緑を楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/アベリア.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/アベリア.png" alt="アベリア" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">アベリア</div>
+                    <div class="card-name-en">長い期間花を楽しめる。
+多様な葉色で景観を彩る。</div>
+                </div>
+            </a>
+            
+            <a href="pages/イチイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/イチイ.png" alt="イチイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">イチイ</div>
+                    <div class="card-name-en">一年中緑を楽しめる。
+刈り込みに強く、様々な樹形に仕立てられる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/イチョウ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/イチョウ.png" alt="イチョウ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">イチョウ</div>
+                    <div class="card-name-en">秋の黄葉が美しい。
+銀杏は食用になる.</div>
+                </div>
+            </a>
+            
+            <a href="pages/イトヒバ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/イトヒバ.png" alt="イトヒバ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">イトヒバ</div>
+                    <div class="card-name-en">風情ある垂れ下がった樹形が魅力的。
+日本庭園などで古くから親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/イヌツゲ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/イヌツゲ.png" alt="イヌツゲ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">イヌツゲ</div>
+                    <div class="card-name-en">一年中濃い緑色の葉を楽しめる。
+様々な樹形に仕立てられる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/イロハモミジ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/イロハモミジ.png" alt="イロハモミジ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">イロハモミジ</div>
+                    <div class="card-name-en">新緑、花、紅葉と四季折々の美しさを楽しめる。
+シンボルツリーとしても人気.</div>
+                </div>
+            </a>
+            
+            <a href="pages/ウチワサボテン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ウチワサボテン.jpg" alt="ウチワサボテン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ウチワサボテン</div>
+                    <div class="card-name-en">ユニークな形状が庭のアクセントになる。
+ドライガーデンに最適。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ウメ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ウメ.png" alt="ウメ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ウメ</div>
+                    <div class="card-name-en">春の訪れを告げる花として親しまれる。
+梅干しや梅酒など、実用的な価値も高い。</div>
+                </div>
+            </a>
+            
+            <a href="pages/エメラルドグリーン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/エメラルドグリーン.jpg" alt="エメラルドグリーン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">エメラルドグリーン</div>
+                    <div class="card-name-en">鮮やかな緑色の葉が一年中楽しめる。
+整った樹形が洋風ガーデンに合う。</div>
+                </div>
+            </a>
+            
+            <a href="pages/エレガンテシマ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/エレガンテシマ.jpg" alt="エレガンテシマ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">エレガンテシマ</div>
+                    <div class="card-name-en">黄金色から赤褐色へ変化する葉色が美しい。
+ガーデニングの定番コニファー。</div>
+                </div>
+            </a>
+            
+            <a href="pages/オリーブ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/オリーブ.png" alt="オリーブ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">オリーブ</div>
+                    <div class="card-name-en">美しい葉色と樹形が魅力的。
+食用となる果実を収穫できる。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="カ行" class="section-header">カ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/カイヅカイブキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/カイヅカイブキ.png" alt="カイヅカイブキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">カイヅカイブキ</div>
+                    <div class="card-name-en">独特の樹形が景観のアクセントになる。
+密生した枝葉は目隠し効果が高い。</div>
+                </div>
+            </a>
+            
+            <a href="pages/カキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/カキ.png" alt="カキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">カキ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+秋の紅葉が美しい。</div>
+                </div>
+            </a>
+            
+            <a href="pages/カクレミノ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/カクレミノ.png" alt="カクレミノ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">カクレミノ</div>
+                    <div class="card-name-en">独特の葉の形が魅力的。
+一年中緑を楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/カルミア.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/カルミア.png" alt="カルミア" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">カルミア</div>
+                    <div class="card-name-en">金平糖のような蕾と、華やかな花が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ガマズミ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ガマズミ.png" alt="ガマズミ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ガマズミ</div>
+                    <div class="card-name-en">白い花と赤い実、そして紅葉と四季折々の変化が楽しめる。
+実は食用にもなる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/キャラ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/キャラ.png" alt="キャラ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">キャラ</div>
+                    <div class="card-name-en">一年中緑を楽しめる。
+刈り込みに強く、様々な樹形に仕立てられる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/キョウチクトウ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/キョウチクトウ.png" alt="キョウチクトウ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">キョウチクトウ</div>
+                    <div class="card-name-en">長い期間花を楽しめる。
+過酷な環境にも耐える。</div>
+                </div>
+            </a>
+            
+            <a href="pages/キンカン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/キンカン.png" alt="キンカン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">キンカン</div>
+                    <div class="card-name-en">皮ごと食べられる実が特徴。
+黄金色の実をたくさんつける姿が美しい.</div>
+                </div>
+            </a>
+            
+            <a href="pages/キンモクセイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/キンモクセイ.png" alt="キンモクセイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">キンモクセイ</div>
+                    <div class="card-name-en">甘く芳醇な香りが魅力的。
+秋の訪れを告げる風物詩。</div>
+                </div>
+            </a>
+            
+            <a href="pages/クロガネモチ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/クロガネモチ.png" alt="クロガネモチ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">クロガネモチ</div>
+                    <div class="card-name-en">冬の庭を彩る赤い実が美しい。
+縁起物として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/グミ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/グミ.png" alt="グミ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">グミ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+丈夫で育てやすい。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ケヤキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ケヤキ.jpg" alt="ケヤキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ケヤキ</div>
+                    <div class="card-name-en">美しい樹形と紅葉が魅力的。
+日本の代表的な広葉樹。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ゲッケイジュ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ゲッケイジュ.jpg" alt="ゲッケイジュ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ゲッケイジュ</div>
+                    <div class="card-name-en">香りの良い葉が魅力的。
+勝利や栄誉の象徴とされる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ココスヤシ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ココスヤシ.jpg" alt="ココスヤシ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ココスヤシ</div>
+                    <div class="card-name-en">南国風の見た目で、リゾートガーデンのシンボルツリーに最適。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/コデマリ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/コデマリ.jpg" alt="コデマリ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">コデマリ</div>
+                    <div class="card-name-en">手毬のような花が可憐で美しい。
+満開時には枝葉を覆い尽くすほど見事。</div>
+                </div>
+            </a>
+            
+            <a href="pages/コノテガシワ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/コノテガシワ.jpg" alt="コノテガシワ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">コノテガシワ</div>
+                    <div class="card-name-en">独特の葉の付き方と丸い樹形。
+和風・洋風問わず使える。</div>
+                </div>
+            </a>
+            
+            <a href="pages/コンフューサ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/コンフューサ.png" alt="コンフューサ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">コンフューサ</div>
+                    <div class="card-name-en">スタイリッシュな葉と、冬に咲く花が魅力的。
+和洋どちらの庭にも馴染みやすい.</div>
+                </div>
+            </a>
+            
+            <a href="pages/ゴールドクレスト.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ゴールドクレスト.jpg" alt="ゴールドクレスト" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ゴールドクレスト</div>
+                    <div class="card-name-en">輝くような明るい葉色が庭を明るくする。
+香りが良い（サンショウの香り）。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="サ行" class="section-header">サ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/サカキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/サカキ.png" alt="サカキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">サカキ</div>
+                    <div class="card-name-en">一年中美しい緑を楽しめる。
+神聖な木として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/サクラ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/サクラ.png" alt="サクラ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">サクラ</div>
+                    <div class="card-name-en">春の訪れを告げる美しい花が魅力的。
+日本の文化と深く結びついている。</div>
+                </div>
+            </a>
+            
+            <a href="pages/サザンカ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/サザンカ.jpg" alt="サザンカ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">サザンカ</div>
+                    <div class="card-name-en">冬に花を楽しめる貴重な花木。
+生垣や目隠しに適する。</div>
+                </div>
+            </a>
+            
+            <a href="pages/サトウニシキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/サトウニシキ.png" alt="サトウニシキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">サトウニシキ</div>
+                    <div class="card-name-en">上品な甘味と程よい酸味のバランスが非常に良い。
+「さくらんぼの王様」と呼ばれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/サルスベリ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/サルスベリ.jpg" alt="サルスベリ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">サルスベリ</div>
+                    <div class="card-name-en">長い期間花を楽しめる。
+滑らかな幹肌が特徴的。</div>
+                </div>
+            </a>
+            
+            <a href="pages/シキミ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シキミ.jpg" alt="シキミ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シキミ</div>
+                    <div class="card-name-en">独特の葉の香りが特徴。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/シダレヤナギ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シダレヤナギ.jpg" alt="シダレヤナギ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シダレヤナギ</div>
+                    <div class="card-name-en">優美な樹形が水辺の景観を美しく演出する。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/シマトネリコ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シマトネリコ.jpg" alt="シマトネリコ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シマトネリコ</div>
+                    <div class="card-name-en">涼しげな樹形がおしゃれで、シンボルツリーとして人気。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/シャクナゲ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シャクナゲ.jpg" alt="シャクナゲ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シャクナゲ</div>
+                    <div class="card-name-en">豪華で美しい花が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/シャラノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シャラノキ.jpg" alt="シャラノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シャラノキ</div>
+                    <div class="card-name-en">一日花の「はかない美しさ」が魅力的。
+まだら模様の幹肌も観賞価値が高い。</div>
+                </div>
+            </a>
+            
+            <a href="pages/シャリンバイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シャリンバイ.jpg" alt="シャリンバイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シャリンバイ</div>
+                    <div class="card-name-en">車輪状の葉と白い花が特徴的。
+丈夫で育てやすい。</div>
+                </div>
+            </a>
+            
+            <a href="pages/シュロ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シュロ.jpg" alt="シュロ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シュロ</div>
+                    <div class="card-name-en">南国風の景観を演出する。
+強靭な繊維は生活用品の材料として利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/シラカシ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シラカシ.jpg" alt="シラカシ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シラカシ</div>
+                    <div class="card-name-en">一年中緑を楽しめる。
+生垣や防風林、防火樹として利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/シラカバ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シラカバ.jpg" alt="シラカバ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シラカバ</div>
+                    <div class="card-name-en">白い幹が美しく、景観のアクセントになる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/シルバープリペット.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/シルバープリペット.jpg" alt="シルバープリペット" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">シルバープリペット</div>
+                    <div class="card-name-en">斑入りの葉が明るく人目を引く。
+生垣やアクセントツリーに適する。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ジンチョウゲ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ジンチョウゲ.jpg" alt="ジンチョウゲ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ジンチョウゲ</div>
+                    <div class="card-name-en">甘く強い香りが魅力的。
+春の訪れを告げる花として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/スカイロケット.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/スカイロケット.jpg" alt="スカイロケット" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">スカイロケット</div>
+                    <div class="card-name-en">スタイリッシュな樹形が魅力的。
+狭い場所への植栽にも適する。</div>
+                </div>
+            </a>
+            
+            <a href="pages/スグリ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/スグリ.jpg" alt="スグリ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">スグリ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/スダジイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/スダジイ.jpg" alt="スダジイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">スダジイ</div>
+                    <div class="card-name-en">食用となるドングリを収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/スモモ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/スモモ.jpg" alt="スモモ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">スモモ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/セイシカ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/セイシカ.jpg" alt="セイシカ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">セイシカ</div>
+                    <div class="card-name-en">清楚で美しい花が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/センダン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/センダン.jpg" alt="センダン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">センダン</div>
+                    <div class="card-name-en">美しい樹形と、秋から冬にかけての実が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/センリョウ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/センリョウ.jpg" alt="センリョウ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">センリョウ</div>
+                    <div class="card-name-en">葉の上に実がつく独特の姿が魅力的。
+正月飾りとして縁起物。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ソテツ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ソテツ.jpg" alt="ソテツ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ソテツ</div>
+                    <div class="card-name-en">南国風の独特な樹形が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ソヨゴ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ソヨゴ.jpg" alt="ソヨゴ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ソヨゴ</div>
+                    <div class="card-name-en">風にそよぐ葉の音が心地よい。
+秋から冬にかけて赤い実が美しい。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="タ行" class="section-header">タ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/タイサンボク.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/タイサンボク.jpg" alt="タイサンボク" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">タイサンボク</div>
+                    <div class="card-name-en">純白の大きな花と芳醇な香りが魅力的。
+風格ある樹形がシンボルツリーに適する。</div>
+                </div>
+            </a>
+            
+            <a href="pages/タチバナ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/タチバナ.jpg" alt="タチバナ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">タチバナ</div>
+                    <div class="card-name-en">一年中緑を楽しめる。
+古くから縁起の良い木として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/タマアジサイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/タマアジサイ.jpg" alt="タマアジサイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">タマアジサイ</div>
+                    <div class="card-name-en">球形の蕾と、遅咲きの花が特徴的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/タラノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/タラノキ.jpg" alt="タラノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">タラノキ</div>
+                    <div class="card-name-en">食用となる「タラの芽」が有名。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/タラノキ2.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/タラノキ2.jpg" alt="タラノキ2" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">タラノキ2</div>
+                    <div class="card-name-en">山菜としての収穫の楽しみ。
+野趣あふれる樹形。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ダジリリオン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ダジリリオン.jpg" alt="ダジリリオン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ダジリリオン</div>
+                    <div class="card-name-en">トゲのある幾何学的な葉の広がりが美しい。
+ワイルドで彫刻的な存在感。</div>
+                </div>
+            </a>
+            
+            <a href="pages/チャボヒバ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/チャボヒバ.jpg" alt="チャボヒバ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">チャボヒバ</div>
+                    <div class="card-name-en">扇状の枝葉が美しく、シンボルツリーや生垣に適する。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ツゲ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ツゲ.jpg" alt="ツゲ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ツゲ</div>
+                    <div class="card-name-en">緻密な葉と、刈り込みに強い性質が魅力的。
+様々な樹形に仕立てられる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ツツジ（オオムラサキツツジ）.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ツツジ（オオムラサキツツジ）.jpg" alt="ツツジ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ツツジ</div>
+                    <div class="card-name-en">色鮮やかで美しい花が魅力的。
+生垣などにも利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ツリバナ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ツリバナ.jpg" alt="ツリバナ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ツリバナ</div>
+                    <div class="card-name-en">花や実がぶら下がる姿が可憐で美しい。
+秋の紅葉も楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ツルバラ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ツルバラ.jpg" alt="ツルバラ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ツルバラ</div>
+                    <div class="card-name-en">アーチやフェンス、パーゴラなどに誘引することで、立体的な景観を作り出す。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/トウカエデ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/トウカエデ.jpg" alt="トウカエデ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">トウカエデ</div>
+                    <div class="card-name-en">美しい紅葉と新緑が魅力的。
+街路樹や公園樹として広く利用される.</div>
+                </div>
+            </a>
+            
+            <a href="pages/トキワマンサク（ベニバナトキワマンサク）.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/トキワマンサク（ベニバナトキワマンサク）.jpg" alt="トキワマンサク" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">トキワマンサク</div>
+                    <div class="card-name-en">美しい花と、年間を通して緑を楽しめるのが魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/トネリコ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/トネリコ.jpg" alt="トネリコ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">トネリコ</div>
+                    <div class="card-name-en">美しい樹形と、木材としての実用性。
+</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="ナ行" class="section-header">ナ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/ナナカマド.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ナナカマド.jpg" alt="ナナカマド" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ナナカマド</div>
+                    <div class="card-name-en">美しい紅葉と赤い実が魅力的。
+街路樹や公園樹として利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ナンテン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ナンテン.jpg" alt="ナンテン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ナンテン</div>
+                    <div class="card-name-en">「難を転ずる」という語呂合わせから縁起の良い木とされる。
+冬の庭を彩る赤い実が美しい。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ニオイヒバ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ニオイヒバ.jpg" alt="ニオイヒバ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ニオイヒバ</div>
+                    <div class="card-name-en">甘い香りが魅力的。
+生垣や庭木として利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ニオイヒバ2.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ニオイヒバ2.jpg" alt="ニオイヒバ2" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ニオイヒバ2</div>
+                    <div class="card-name-en">美しい円錐形の樹形と、一年中緑を保つ葉。
+香りの良さ。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ニューサイラン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ニューサイラン.jpg" alt="ニューサイラン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ニューサイラン</div>
+                    <div class="card-name-en">スタイリッシュでモダンな葉姿。
+赤、銅、斑入りなど葉色が豊富。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ネコヤナギ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ネコヤナギ.jpg" alt="ネコヤナギ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ネコヤナギ</div>
+                    <div class="card-name-en">猫のしっぽのような花穂が可愛らしい。
+春の訪れを告げる花として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ネムノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ネムノキ.jpg" alt="ネムノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ネムノキ</div>
+                    <div class="card-name-en">独特の葉の動きと美しい花が魅力的。
+夫婦円満の象徴とされる。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="ハ行" class="section-header">ハ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/ハクモクレン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ハクモクレン.jpg" alt="ハクモクレン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ハクモクレン</div>
+                    <div class="card-name-en">大きな白い花と芳香が魅力的。
+春の訪れを告げる花として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ハシラサボテン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ハシラサボテン.jpg" alt="ハシラサボテン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ハシラサボテン</div>
+                    <div class="card-name-en">垂直に伸びるラインが建築的で美しい。
+モダンな庭やドライガーデンに合う。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ハナミズキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ハナミズキ.jpg" alt="ハナミズキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ハナミズキ</div>
+                    <div class="card-name-en">美しい花と紅葉、実と四季折々の変化を楽しめる。
+街路樹やシンボルツリーとして人気。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ハンカチノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ハンカチノキ.jpg" alt="ハンカチノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ハンカチノキ</div>
+                    <div class="card-name-en">白いハンカチがぶら下がっているような独特の姿が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヒイラギ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヒイラギ.jpg" alt="ヒイラギ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヒイラギ</div>
+                    <div class="card-name-en">葉のトゲと甘い香りが特徴的。
+生け垣や庭木として利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヒイラギナンテン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヒイラギナンテン.jpg" alt="ヒイラギナンテン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヒイラギナンテン</div>
+                    <div class="card-name-en">ヒイラギのような葉と、黄色い花が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヒサカキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヒサカキ.jpg" alt="ヒサカキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヒサカキ</div>
+                    <div class="card-name-en">一年中艶のある葉を楽しめる。
+神棚へ供える玉串に利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヒノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヒノキ.jpg" alt="ヒノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヒノキ</div>
+                    <div class="card-name-en">美しい木目と芳香が魅力的。
+長期間にわたって安定した強度を保つ。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヒマラヤスギ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヒマラヤスギ.jpg" alt="ヒマラヤスギ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヒマラヤスギ</div>
+                    <div class="card-name-en">雄大な樹形と銀緑色の葉。
+松ぼっくりは「シダーローズ」としてリース飾りに人気。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヒメシャラ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヒメシャラ.jpg" alt="ヒメシャラ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヒメシャラ</div>
+                    <div class="card-name-en">ツルツルとした美しい幹肌が魅力的。
+可憐な花と紅葉も楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ビャクシン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ビャクシン.jpg" alt="ビャクシン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ビャクシン</div>
+                    <div class="card-name-en">野趣に富んだ雰囲気が魅力的。
+盆栽や和風庭園、寺社に利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/フィリフィラオーレア.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/フィリフィラオーレア.jpg" alt="フィリフィラオーレア" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">フィリフィラオーレア</div>
+                    <div class="card-name-en">黄金色の葉が美しく、庭のアクセントになる。
+様々な用途で利用できる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/フェイジョア.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/フェイジョア.jpg" alt="フェイジョア" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">フェイジョア</div>
+                    <div class="card-name-en">エキゾチックな花と、芳醇な香りの果実が魅力的。
+観賞用としても果樹としても楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/フジ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/フジ.jpg" alt="フジ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">フジ</div>
+                    <div class="card-name-en">優美な花と香りが魅力的。
+藤棚などに利用され、日本の文化に深く関わる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ブドウ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ブドウ.jpg" alt="ブドウ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ブドウ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+棚作りや垣根仕立てに適している。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ブラシノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ブラシノキ.jpg" alt="ブラシノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ブラシノキ</div>
+                    <div class="card-name-en">独特のブラシ状の花が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ブルーアイス.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ブルーアイス.jpg" alt="ブルーアイス" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ブルーアイス</div>
+                    <div class="card-name-en">雪をかぶったようなシルバーブルーの葉色。
+爽やかな森林の香り。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ブルーヘブン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ブルーヘブン.jpg" alt="ブルーヘブン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ブルーヘブン</div>
+                    <div class="card-name-en">スリムな樹形で場所をとりにくい。
+コニファーの中では比較的病害虫に強い。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ブルーベリー.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ブルーベリー.jpg" alt="ブルーベリー" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ブルーベリー</div>
+                    <div class="card-name-en">花、実、紅葉と一年を通して楽しめる。
+食用となる果実を収穫できる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/プラム.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/プラム.jpg" alt="プラム" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">プラム</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ホンコンエンシス（常緑ヤマボウシ）.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ホンコンエンシス（常緑ヤマボウシ）.jpg" alt="ホンコンエンシス" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ホンコンエンシス</div>
+                    <div class="card-name-en">またたく間にシンボルツリーの定番になった。
+花・実・紅葉・常緑と観賞期間が長い。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ボケ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ボケ.jpg" alt="ボケ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ボケ</div>
+                    <div class="card-name-en">多様な花色と咲き方が魅力的。
+果実酒やジャムなどに加工できる.</div>
+                </div>
+            </a>
+            
+            <a href="pages/ボタン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ボタン.jpg" alt="ボタン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ボタン</div>
+                    <div class="card-name-en">豪華で美しい花が魅力的。
+「花の王」として親しまれる。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="マ行" class="section-header">マ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/マサキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/マサキ.jpg" alt="マサキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">マサキ</div>
+                    <div class="card-name-en">一年中美しい葉を楽しめる。
+生垣や庭木として利用される。</div>
+                </div>
+            </a>
+            
+            <a href="pages/マテバシイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/マテバシイ.jpg" alt="マテバシイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">マテバシイ</div>
+                    <div class="card-name-en">食用となるどんぐりを収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/マンリョウ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/マンリョウ.jpg" alt="マンリョウ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">マンリョウ</div>
+                    <div class="card-name-en">冬の庭を彩る赤い実が魅力的。
+縁起物として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ミカン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ミカン.jpg" alt="ミカン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ミカン</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ミモザ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ミモザ.jpg" alt="ミモザ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ミモザ</div>
+                    <div class="card-name-en">明るい黄色の花が美しく、春の庭を彩る。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ムクゲ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ムクゲ.jpg" alt="ムクゲ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ムクゲ</div>
+                    <div class="card-name-en">夏から秋にかけて長く花を楽しめる。
+丈夫で育てやすい。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ムラサキシキブ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ムラサキシキブ.jpg" alt="ムラサキシキブ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ムラサキシキブ</div>
+                    <div class="card-name-en">紫色の実が美しく、秋の庭を彩る。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/モクレン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/モクレン.jpg" alt="モクレン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">モクレン</div>
+                    <div class="card-name-en">大きな花が美しく、春の庭を彩る。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/モチノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/モチノキ.jpg" alt="モチノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">モチノキ</div>
+                    <div class="card-name-en">一年中美しい葉と赤い実を楽しめる。
+縁起の良い木として親しまれる.</div>
+                </div>
+            </a>
+            
+            <a href="pages/モッコク.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/モッコク.jpg" alt="モッコク" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">モッコク</div>
+                    <div class="card-name-en">一年中美しい葉と、秋の赤い実が魅力的。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/モミノキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/モミノキ.jpg" alt="モミノキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">モミノキ</div>
+                    <div class="card-name-en">整った円錐形の樹形。
+神聖な雰囲気があり、記念樹にも使われる。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="ヤ行" class="section-header">ヤ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/ヤツデ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヤツデ.jpg" alt="ヤツデ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヤツデ</div>
+                    <div class="card-name-en">独特の葉の形が魅力的。
+「千客万来」の縁起を担ぐ。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヤマブキ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヤマブキ.jpg" alt="ヤマブキ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヤマブキ</div>
+                    <div class="card-name-en">鮮やかな黄色の花が春の庭を彩る。
+「山吹色」の語源にもなっている。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヤマボウシ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヤマボウシ.jpg" alt="ヤマボウシ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヤマボウシ</div>
+                    <div class="card-name-en">美しい花と、食用となる実が魅力的。
+四季折々の変化を楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヤマモモ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヤマモモ.jpg" alt="ヤマモモ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヤマモモ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+葉の密度が高いため、目隠しにもなる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ユキヤナギ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ユキヤナギ.jpg" alt="ユキヤナギ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ユキヤナギ</div>
+                    <div class="card-name-en">雪が積もったような花が可憐で美しい。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ユズ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ユズ.jpg" alt="ユズ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ユズ</div>
+                    <div class="card-name-en">独特の香りの果皮が魅力的。
+冬至にはユズ湯として親しまれる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ユッカ・デスメティアーナ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ユッカ・デスメティアーナ.jpg" alt="ユッカ・デスメティアーナ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ユッカ・デスメティアーナ</div>
+                    <div class="card-name-en">冬の紅葉（パープル）が非常に美しい。
+モダンでエレガントな雰囲気。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ユッカ・ロストラータ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ユッカ・ロストラータ.jpg" alt="ユッカ・ロストラータ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ユッカ・ロストラータ</div>
+                    <div class="card-name-en">圧倒的な存在感と美しさ。
+シルバーブルーの葉色が洗練された印象。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ユーカリ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ユーカリ.jpg" alt="ユーカリ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ユーカリ</div>
+                    <div class="card-name-en">美しい葉色と香りが魅力的。
+コアラが食べる植物として有名。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ヨーロッパゴールド.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ヨーロッパゴールド.jpg" alt="ヨーロッパゴールド" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ヨーロッパゴールド</div>
+                    <div class="card-name-en">発色の良い黄金色の葉が庭を明るくする。
+香りもよい。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="ラ行" class="section-header">ラ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/ライラック.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ライラック.jpg" alt="ライラック" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ライラック</div>
+                    <div class="card-name-en">甘い香りの花が魅力的。
+春の庭を彩る。</div>
+                </div>
+            </a>
+            
+            <a href="pages/リンゴ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/リンゴ.jpg" alt="リンゴ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">リンゴ</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/レッドスター.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/レッドスター.jpg" alt="レッドスター" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">レッドスター</div>
+                    <div class="card-name-en">赤茶色の葉が美しく、庭や寄せ植えのアクセントになる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/レッドロビン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/レッドロビン.jpg" alt="レッドロビン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">レッドロビン</div>
+                    <div class="card-name-en">鮮やかな赤い新芽が魅力的。
+生垣やアクセントツリーに適する。</div>
+                </div>
+            </a>
+            
+            <a href="pages/レモン.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/レモン.jpg" alt="レモン" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">レモン</div>
+                    <div class="card-name-en">食用となる果実を収穫できる。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/レンギョウ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/レンギョウ.jpg" alt="レンギョウ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">レンギョウ</div>
+                    <div class="card-name-en">鮮やかな黄色の花が春の庭を彩る。
+</div>
+                </div>
+            </a>
+            
+            <a href="pages/ロウバイ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ロウバイ.jpg" alt="ロウバイ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ロウバイ</div>
+                    <div class="card-name-en">冬の寒い時期に咲く花が魅力的。
+甘い香りが楽しめる。</div>
+                </div>
+            </a>
+            
+            <a href="pages/ローリエ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ローリエ.jpg" alt="ローリエ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ローリエ</div>
+                    <div class="card-name-en">料理の香り付けや臭み消しに利用される。
+古代ギリシャでは勝利と栄光のシンボルとされた。</div>
+                </div>
+            </a>
+            </div>
+        <h2 id="ワ行" class="section-header">ワ行</h2>
+        <div class="tree-grid">
+        
+            <a href="pages/ワシントンヤシ.html" class="tree-card">
+                <div class="card-image-wrapper">
+                    <img src="images/ワシントンヤシ.jpg" alt="ワシントンヤシ" class="card-image">
+                </div>
+                <div class="card-info">
+                    <div class="card-name-jp">ワシントンヤシ</div>
+                    <div class="card-name-en">リゾート感あふれる景観を作る。
+枯れた葉が垂れ下がり「スカート」を作るのが特徴。</div>
+                </div>
+            </a>
+            </div>
+        <div style="text-align:center; margin-top: 3rem;">
+            <a href="index.html" class="back-link">ホームに戻る</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="about.html">運営について (About Us)</a>
+            <p>&copy; 2026 Harunami Works</p>
+        </div>
+    </footer>
+</body>
+</html>
