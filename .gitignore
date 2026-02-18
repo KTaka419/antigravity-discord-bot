@@ -1,23 +1,6 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.manifest
-venv/
-env/
-.env
+# Ignore everything in the root directory
+/*
 
-# Images
-*.bak.csv
-temp_resized/
-# outputs/ # Maybe keep outputs if they are source? But docs/images has copies.
-# Let's keep outputs for now as source, but docs is the build.
-# We don't want to commit the huge plant_images folder if it exists elsewhere, user probably only has character images here?
-# User path is Desktop\helloworld.
-# Exclude system files
-Thumbs.db
-Desktop.ini
-
-# IDE
-.vscode/
-.idea/
+# Exceptions (Files/Folders to keep tracked)
+!/antigravity-discord-bot/
+!/.gitignore
