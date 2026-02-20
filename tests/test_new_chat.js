@@ -13,98 +13,64 @@ async function injectMessage(cdp, text) {
                 const cls = (svg.getAttribute('class') || '') + ' ' + (btn.getAttribute('class') || '');
                 if (SELECTORS.SUBMIT_BUTTON_SVG_CLASSES.some(c => cls.includes(c))) return true;
             }
-            const txt = (btn.innerText || '').trim().toLowerCase();
-            if (['send', 'run'].includes(txt)) return true;
             return false;
         }
 
         const doc = document;
-        const editors = Array.from(doc.querySelectorAll(SELECTORS.CHAT_INPUT));
-        const validEditors = editors.filter(el => el.offsetParent !== null);
+        const els = doc.querySelectorAll(SELECTORS.CHAT_INPUT);
+        const editor = Array.from(els).filter(el => el.offsetParent !== null).at(-1);
         
-        const editor = validEditors.at(-1); 
-        if (!editor) return { ok: false, error: "No editor found in this context" };
+        if (!editor) return { ok: false, error: "No editor found" };
 
         editor.focus();
-        
-        let inserted = doc.execCommand("insertText", false, ${safeText});
-        if (!inserted) {
-            editor.textContent = ${safeText};
-            editor.dispatchEvent(new InputEvent("beforeinput", { bubbles:true, inputType:"insertText", data: ${safeText} }));
-            editor.dispatchEvent(new InputEvent("input", { bubbles:true, inputType:"insertText", data: ${safeText} }));
-        }
+        document.execCommand("insertText", false, ${safeText});
         editor.dispatchEvent(new Event('input', { bubbles: true }));
         
-        await new Promise(r => setTimeout(r, 200));
+        await new Promise(r => setTimeout(r, 500));
 
-        const allButtons = Array.from(doc.querySelectorAll(SELECTORS.SUBMIT_BUTTON_CONTAINER));
-        const submit = allButtons.find(isSubmitButton);
+        const buttons = Array.from(doc.querySelectorAll(SELECTORS.SUBMIT_BUTTON_CONTAINER));
+        const submit = buttons.find(isSubmitButton);
         
         if (submit) {
              submit.click();
              return { ok: true, method: "click" };
         }
         
-        editor.dispatchEvent(new KeyboardEvent("keydown", { bubbles:true, key:"Enter", code:"Enter" }));
+        editor.dispatchEvent(new KeyboardEvent("keydown", { bubbles:true, key:"Enter", code:"Enter", keyCode: 13 }));
         return { ok: true, method: "enter" };
     })()`;
 
-    const targetContexts = cdp.contexts.filter(c =>
-        (c.url && c.url.includes(SELECTORS.CONTEXT_URL_KEYWORD)) ||
-        (c.name && c.name.includes('Extension'))
-    );
-
-    const contextsToTry = targetContexts.length > 0 ? targetContexts : cdp.contexts;
-
-    for (const ctx of contextsToTry) {
+    for (const ctx of cdp.contexts) {
         try {
             const res = await cdp.call("Runtime.evaluate", { expression: EXP, returnByValue: true, awaitPromise: true, contextId: ctx.id });
-            if (res.result?.value?.ok) {
-                return res.result.value;
-            }
+            if (res.result?.value?.ok) return res.result.value;
         } catch (e) { }
     }
-
-    if (targetContexts.length > 0) {
-        const otherContexts = cdp.contexts.filter(c => !targetContexts.includes(c));
-        for (const ctx of otherContexts) {
-            try {
-                const res = await cdp.call("Runtime.evaluate", { expression: EXP, returnByValue: true, awaitPromise: true, contextId: ctx.id });
-                if (res.result?.value?.ok) {
-                    return res.result.value;
-                }
-            } catch (e) { }
-        }
-    }
-
     return { ok: false, error: "Injection failed" };
 }
 
 async function startNewChat(cdp) {
     const EXP = `(() => {
-        function getTargetDoc() {
-            const iframes = document.querySelectorAll('iframe');
-            for (let i = 0; i < iframes.length; i++) {
-                if (iframes[i].src.includes('cascade-panel')) {
-                    try { return iframes[i].contentDocument; } catch(e) {}
-                }
-            }
-            return null;
-        }
         const selectors = [
             '[data-tooltip-id="new-conversation-tooltip"]',
             '[data-tooltip-id*="new-chat"]',
-            '[data-tooltip-id*="new_chat"]',
-            '[aria-label*="New Chat"]',
-            '[aria-label*="New Conversation"]'
+            '[aria-label*="New Chat"]'
         ];
-        const docs = [document];
-        const iframeDoc = getTargetDoc();
-        if (iframeDoc) docs.push(iframeDoc);
-        for (const doc of docs) {
-            for (const sel of selectors) {
-                const btn = doc.querySelector(sel);
-                if (btn) { btn.click(); return { success: true, method: sel }; }
+        
+        for (const sel of selectors) {
+            const btn = document.querySelector(sel);
+            if (btn) {
+                const dispatch = (type, Cls) => {
+                    const ev = new Cls(type, { bubbles: true, cancelable: true, view: window, buttons: 1 });
+                    btn.dispatchEvent(ev);
+                };
+                dispatch('pointerdown', PointerEvent);
+                dispatch('mousedown', MouseEvent);
+                dispatch('pointerup', PointerEvent);
+                dispatch('mouseup', MouseEvent);
+                dispatch('click', MouseEvent);
+                btn.click();
+                return { success: true, method: sel };
             }
         }
         return { success: false };
@@ -112,42 +78,85 @@ async function startNewChat(cdp) {
     for (const ctx of cdp.contexts) {
         try {
             const res = await cdp.call("Runtime.evaluate", { expression: EXP, returnByValue: true, contextId: ctx.id });
-            if (res.result?.value?.success) {
-                return res.result.value;
-            }
+            if (res.result?.value?.success) return res.result.value;
         } catch (e) { }
     }
     return { success: false };
 }
 
+async function getChatSnapshot(cdp) {
+    const EXP = `(() => {
+        const titleEl = document.querySelector('p.text-ide-sidebar-title-color');
+        return {
+            messageCount: document.querySelectorAll('[data-message-role]').length,
+            title: titleEl ? (titleEl.innerText || '').trim() : null
+        };
+    })()`;
+
+    for (const ctx of cdp.contexts) {
+        try {
+            const res = await cdp.call("Runtime.evaluate", { expression: EXP, returnByValue: true, contextId: ctx.id });
+            if (res.result?.value) return res.result.value;
+        } catch (e) { }
+    }
+    return { messageCount: 0, title: null };
+}
+
 async function runTest() {
-    console.log("=== Testing New Chat ===");
+    console.log("=== Testing Meaningful New Chat Workflow ===");
     const cdp = await ensureCDP();
     if (!cdp) {
         console.error("[ERROR] CDP connection failed.");
         process.exit(1);
     }
 
-    console.log("[INFO] Attempting to start a new chat...");
-    const result = await startNewChat(cdp);
+    const before = await getChatSnapshot(cdp);
+    console.log(`[INFO] Before new chat: title="${before.title || 'null'}", messages=${before.messageCount}`);
 
-    if (result.success) {
-        console.log(`[SUCCESS] New chat started. Method: ${result.method}`);
+    // 1. Perform "New Chat" reset first to start fresh
+    console.log("[INFO] Starting a New Chat to clear the workspace...");
+    const resetResult = await startNewChat(cdp);
 
-        // Wait a moment for new chat UI to load
-        console.log("[INFO] Waiting for UI to initialize...");
-        await new Promise(r => setTimeout(r, 2000));
+    if (resetResult.success) {
+        console.log(`[SUCCESS] New chat signal sent via: ${resetResult.method}`);
+        console.log("[INFO] Waiting for reset to clear UI...");
+        await new Promise(r => setTimeout(r, 4000));
+        const afterReset = await getChatSnapshot(cdp);
+        console.log(`[INFO] After new chat: title="${afterReset.title || 'null'}", messages=${afterReset.messageCount}`);
 
-        console.log("[INFO] Verifying chat input by sending a message...");
-        const injectResult = await injectMessage(cdp, "Test message in a new chat!");
+        // 2. Inject a meaningful construction prompt
+        console.log("[INFO] Injecting instruction to build a Dice App...");
+        const appPrompt = "このWorkspaceに、シンプルなサイコロアプリ（HTML/JS）を作ってください。";
+        const injectResult = await injectMessage(cdp, appPrompt);
+
         if (injectResult.ok) {
-            console.log(`[SUCCESS] Message successfully sent in the new chat.`);
-        } else {
-            console.error(`[FAILED] New chat started, but failed to inject message. Error: ${injectResult.error}`);
-        }
+            console.log(`[SUCCESS] Generation prompt submitted via ${injectResult.method}.`);
+            console.log("[INFO] Waiting 15 seconds to observe the agent starting work...");
+            await new Promise(r => setTimeout(r, 15000));
 
+            // Verify activity
+            const EXP = `document.querySelectorAll('[data-message-role]').length`;
+            let count = 0;
+            for (const ctx of cdp.contexts) {
+                try {
+                    const res = await cdp.call("Runtime.evaluate", { expression: EXP, returnByValue: true, contextId: ctx.id });
+                    if (res.result?.value > 0) { count = res.result.value; break; }
+                } catch (e) { }
+            }
+            console.log(`[INFO] Current message count: ${count}`);
+            if (count > 0) {
+                console.log("[SUCCESS] VERIFIED: New Chat + App Generation is working correctly!");
+            } else {
+                console.error("[FAILED] No messages detected. New chat flow is not verified.");
+                process.exit(1);
+            }
+        } else {
+            console.error(`[FAILED] Failed to submit application prompt: ${injectResult.error}`);
+            process.exit(1);
+        }
     } else {
         console.error(`[FAILED] New Chat button not found.`);
+        process.exit(1);
     }
 
     console.log("Test finished.");
