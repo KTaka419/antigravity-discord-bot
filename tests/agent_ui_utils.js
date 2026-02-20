@@ -17,7 +17,9 @@ function getOrderedContexts(cdp) {
     });
 }
 
-async function evaluateInOrderedContexts(cdp, expression, awaitPromise = false) {
+async function evaluateInOrderedContexts(cdp, expression, awaitPromise = false, accept = (v) => v !== null && v !== undefined) {
+    let lastValue = null;
+    let lastContextId = null;
     for (const ctx of getOrderedContexts(cdp)) {
         try {
             const res = await cdp.call('Runtime.evaluate', {
@@ -26,12 +28,17 @@ async function evaluateInOrderedContexts(cdp, expression, awaitPromise = false) 
                 awaitPromise,
                 contextId: ctx.id
             });
-            if (res?.result?.value) {
-                return { value: res.result.value, contextId: ctx.id };
+            const value = res?.result?.value;
+            if (value !== undefined) {
+                lastValue = value;
+                lastContextId = ctx.id;
+            }
+            if (accept(value, ctx)) {
+                return { value, contextId: ctx.id };
             }
         } catch (e) {}
     }
-    return { value: null, contextId: null };
+    return { value: lastValue, contextId: lastContextId };
 }
 
 function domHelpersExpr() {
@@ -196,7 +203,34 @@ export async function injectMessage(cdp, text) {
             editor.dispatchEvent(new KeyboardEvent('keyup', eventInit));
         }
 
-        const layout = getBestLayout(SELECTORS);
+        function tryRestoreChatLayout() {
+            const selectors = [
+                '[data-tooltip-id="new-conversation-tooltip"]',
+                '[data-tooltip-id*="new-chat"]',
+                '[data-tooltip-id*="new_chat"]',
+                '[aria-label*="New Chat"]',
+                '[aria-label*="New Conversation"]'
+            ];
+            for (const item of getTargetDocs()) {
+                for (const sel of selectors) {
+                    const btn = item.doc.querySelector(sel);
+                    if (btn && isVisible(btn) && !btn.disabled) {
+                        try { btn.click(); } catch (e) {}
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        let layout = getBestLayout(SELECTORS);
+        if (!layout) {
+            const recovered = tryRestoreChatLayout();
+            if (recovered) {
+                await new Promise(r => setTimeout(r, 1200));
+                layout = getBestLayout(SELECTORS);
+            }
+        }
         if (!layout) {
             return { ok: false, error: 'chat_layout_not_found' };
         }
@@ -241,7 +275,7 @@ export async function injectMessage(cdp, text) {
         return { ok: false, error: 'submit_not_confirmed' };
     })()`;
 
-    const { value } = await evaluateInOrderedContexts(cdp, EXP, true);
+    const { value } = await evaluateInOrderedContexts(cdp, EXP, true, (v) => Boolean(v?.ok));
     if (value?.ok) return value;
     return { ok: false, error: value?.error || 'injection_failed' };
 }
@@ -258,11 +292,6 @@ export async function startNewChat(cdp) {
             '[aria-label*="New Chat"]',
             '[aria-label*="New Conversation"]'
         ];
-
-        const before = getChatSnapshot(SELECTORS);
-        if (!before.layoutRecognized) {
-            return { success: false, reason: 'chat_layout_not_found' };
-        }
 
         for (const item of getTargetDocs()) {
             const doc = item.doc;
@@ -320,7 +349,7 @@ export async function startNewChat(cdp) {
         return { success: false, reason: 'button_not_found' };
     })()`;
 
-    const { value } = await evaluateInOrderedContexts(cdp, EXP, true);
+    const { value } = await evaluateInOrderedContexts(cdp, EXP, true, (v) => Boolean(v?.success));
     if (value?.success) return value;
     return { success: false, reason: value?.reason || 'new_chat_failed' };
 }
@@ -334,7 +363,7 @@ async function checkIsGenerating(cdp) {
         return Boolean(snapshot.layoutRecognized && snapshot.generatingIndicator);
     })()`;
 
-    const { value } = await evaluateInOrderedContexts(cdp, EXP, false);
+    const { value } = await evaluateInOrderedContexts(cdp, EXP, false, (v) => v === true);
     return value === true;
 }
 
@@ -354,7 +383,7 @@ export async function getChatSnapshot(cdp) {
         return getChatSnapshot(SELECTORS);
     })()`;
 
-    const { value } = await evaluateInOrderedContexts(cdp, EXP, false);
+    const { value } = await evaluateInOrderedContexts(cdp, EXP, false, (v) => Boolean(v?.layoutRecognized));
     return value || {
         layoutRecognized: false,
         reason: 'snapshot_failed',
