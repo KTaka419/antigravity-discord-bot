@@ -36,7 +36,9 @@ async function evaluateInOrderedContexts(cdp, expression, awaitPromise = false, 
             if (accept(value, ctx)) {
                 return { value, contextId: ctx.id };
             }
-        } catch (e) {}
+        } catch (e) {
+            // Ignore failures from stale/inaccessible contexts and keep probing the rest.
+        }
     }
     return { value: lastValue, contextId: lastContextId };
 }
@@ -64,7 +66,9 @@ function domHelpersExpr() {
                 if (!src.includes('cascade-panel')) continue;
                 try {
                     if (iframes[i].contentDocument) docs.push({ source: 'cascade_iframe', doc: iframes[i].contentDocument });
-                } catch (e) {}
+                } catch (e) {
+                    // Cross-origin iframes can throw on contentDocument access; skip and continue.
+                }
             }
             return docs;
         }
@@ -284,13 +288,16 @@ export async function injectMessage(cdp, text) {
             let inserted = false;
             try {
                 inserted = doc.execCommand('insertText', false, value);
-            } catch (e) {}
+            } catch (e) {
+                // execCommand may be blocked/deprecated in some Chromium surfaces; use fallback below.
+            }
             if (!inserted) {
                 editor.textContent = value;
                 try {
                     editor.dispatchEvent(new InputEvent('beforeinput', { bubbles: true, inputType: 'insertText', data: value }));
                     editor.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: value }));
                 } catch (e) {
+                    // Some runtimes reject InputEvent construction (e.g., restricted constructors/polyfilled envs).
                     editor.dispatchEvent(new Event('input', { bubbles: true }));
                 }
             }
@@ -317,7 +324,9 @@ export async function injectMessage(cdp, text) {
                 for (const sel of selectors) {
                     const btn = item.doc.querySelector(sel);
                     if (btn && isVisible(btn) && !btn.disabled) {
-                        try { btn.click(); } catch (e) {}
+                        try { btn.click(); } catch (e) {
+                            // Ignore transient click errors and continue with normal layout recovery flow.
+                        }
                         return true;
                     }
                 }
@@ -407,7 +416,9 @@ export async function startNewChat(cdp) {
                         if (typeof Cls === 'function') {
                             btn.dispatchEvent(new Cls(type, { bubbles: true, cancelable: true, view: window, buttons: 1 }));
                         }
-                    } catch (e) {}
+                    } catch (e) {
+                        // Pointer/mouse constructors can fail across frame contexts; best-effort dispatch.
+                    }
                 };
 
                 dispatch('pointerdown', PointerEvent);
@@ -415,7 +426,9 @@ export async function startNewChat(cdp) {
                 dispatch('pointerup', PointerEvent);
                 dispatch('mouseup', MouseEvent);
                 dispatch('click', MouseEvent);
-                try { btn.click(); } catch (e) {}
+                try { btn.click(); } catch (e) {
+                    // Ignore and continue; synthetic events above may already trigger the handler.
+                }
 
                 await new Promise(r => setTimeout(r, 700));
 
@@ -430,7 +443,9 @@ export async function startNewChat(cdp) {
                             b.click();
                             confirmClicked = txt.slice(0, 80);
                             break;
-                        } catch (e) {}
+                        } catch (e) {
+                            // Some modal buttons detach between query and click; keep searching alternatives.
+                        }
                     }
                 }
 
@@ -748,7 +763,9 @@ export async function resolveApprovalPromptIfPresent(cdp) {
                 try {
                     allowBtn.click();
                     return { handled: true, label, docSource: item.source };
-                } catch (e) {}
+                } catch (e) {
+                    // UI can re-render before click; report as unresolved instead of throwing.
+                }
             }
             return { handled: false, reason: 'approval_prompt_visible_but_no_allow_button' };
         }
