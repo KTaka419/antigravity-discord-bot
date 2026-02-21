@@ -98,10 +98,10 @@ async function runTest() {
     }
 
     const hasDiffSummaryLine = lines.some(line =>
-        /(^|\\s)Edited($|\\s)/i.test(line) ||
-        /\\b\\d+\\s+insertions?\\s*\\(\\+\\)/i.test(line) ||
-        /\\b\\d+\\s+deletions?\\s*\\(-\\)/i.test(line) ||
-        /^[+-]\\d+$/.test(String(line || '').trim())
+        /(^|\s)Edited($|\s)/i.test(line) ||
+        /\b\d+\s+insertions?\s*\(\+\)/i.test(line) ||
+        /\b\d+\s+deletions?\s*\(-\)/i.test(line) ||
+        /^[+-]\d+$/.test(String(line || '').trim())
     );
     if (hasDiffSummaryLine) {
         console.log('[SUCCESS] Diff summary style lines are present in history.');
