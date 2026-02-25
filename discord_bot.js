@@ -11,7 +11,7 @@ import fs from 'fs';
 import path from 'path';
 
 // --- CONFIGURATION ---
-const PORTS = [9222, 9000, 9001, 9002, 9003];
+const PORTS = [9222, 9223, 9000, 9001, 9002, 9003];
 const CDP_CALL_TIMEOUT = 30000;
 const POLLING_INTERVAL = 2000;
 const RAW_CLI_ARGS = process.argv.slice(2).map(arg => String(arg || ''));
@@ -153,6 +153,7 @@ function isUiChromeLine(line) {
     if (/^(crlf|lf|utf-8|utf8)$/i.test(t)) return true;
     if (/^ln\s+\d+,\s*col\s+\d+$/i.test(t)) return true;
     if (t === 'reject all' || t === 'accept all') return true;
+    if (t === 'reject allaccept all' || t === 'accept allreject all') return true;
     if (t.includes('ask anything, @ to mention')) return true;
     if (t.startsWith('agent can plan before executing tasks')) return true;
     if (t.startsWith('agent will execute tasks directly')) return true;
@@ -630,6 +631,8 @@ function isLowConfidenceResponse(response) {
 
     if (!raw.trim()) return true;
     if (startsWithChrome) return true;
+    // 差分レビューUI（Reject all / Accept all）を含む場合は常に低信頼
+    if (/reject\s*all/i.test(raw) && /accept\s*all/i.test(raw)) return true;
     if (lines.length >= 8 && naturalLines < 2) return true;
     if (pathLikeLines >= 3 && naturalLines < 4) return true;
     if (codeLikeLines >= 2 && naturalLines < 5) return true;
@@ -833,7 +836,25 @@ async function sendResponseEmbeds(originalMessage, response, promptText = '') {
     );
 
     await emitRawDump(originalMessage, response, autoPrompt, content);
-    logInteraction('ACTION', '[DISCORD_RESPONSE] Discord response posting removed. Kept extraction + local raw dump only.');
+
+    const chunks = splitForEmbed(content);
+    if (chunks.length === 0) return false;
+
+    for (let i = 0; i < chunks.length; i++) {
+        const isFirst = i === 0;
+        const payload = { content: chunks[i] };
+        try {
+            if (isFirst) {
+                await safeReplyTarget(originalMessage, payload);
+            } else {
+                await safeReplyTarget(originalMessage, payload, { preferReply: false });
+            }
+        } catch (e) {
+            logInteraction('ERROR', `[DISCORD_RESPONSE] Failed to send chunk ${i + 1}/${chunks.length}: ${e?.message || String(e)}`);
+            return false;
+        }
+    }
+    logInteraction('SUCCESS', `[DISCORD_RESPONSE] Sent ${chunks.length} chunk(s) to Discord.`);
     return true;
 }
 
@@ -1337,7 +1358,7 @@ async function getLatestUserPrompt(cdp) {
             const value = String(res?.result?.value || '').trim();
             if (!value) continue;
             if (value.length >= best.length) best = value;
-        } catch (e) {}
+        } catch (e) { }
     }
     return best;
 }
@@ -1397,7 +1418,7 @@ async function getLastResponseAcrossTargets() {
             try {
                 const prompt = await getLatestUserPrompt(temp);
                 if (prompt) response.prompt = prompt;
-            } catch (e) {}
+            } catch (e) { }
             const candidate = { target, response };
             const score = scoreExtractedResponseCandidate(candidate);
             logInteraction('ACTION', `[TARGET_SCAN] title="${target.title}" score=${score}`);
@@ -1405,7 +1426,7 @@ async function getLastResponseAcrossTargets() {
         } catch (e) {
             logInteraction('ERROR', `[TARGET_SCAN] failed for "${target?.title || wsUrl}": ${e?.message || String(e)}`);
         } finally {
-            try { temp?.ws?.close(); } catch (e) {}
+            try { temp?.ws?.close(); } catch (e) { }
         }
     }
 
@@ -1588,19 +1609,11 @@ async function injectMessage(cdp, text) {
                 if (submitted) return { ok: true, method };
             }
 
-            if (method !== 'enter') {
-                pressEnter(editor);
-                for (let i = 0; i < 6; i++) {
-                    await new Promise(r => setTimeout(r, 300));
-                    const after = getSnapshot(doc, editor);
-                    const submitted =
-                        after.cancelVisible ||
-                        after.messageCount > before.messageCount ||
-                        (before.editorChars > 0 && after.editorChars === 0);
-                    if (submitted) return { ok: true, method: 'enter' };
-                }
+            // click ボタンが見つかってクリック済みの場合、確認が取れなくてもclick成功として返す
+            // （二重送信を防止するため、EnterフォールバックはENTER方式の場合のみ）
+            if (method === 'click') {
+                return { ok: true, method: 'click_unconfirmed' };
             }
-
             return { ok: false, error: 'submit_not_confirmed' };
         }
 
@@ -1697,7 +1710,7 @@ async function waitForGenerationStart(cdp, timeoutMs = 8000) {
     while (Date.now() - start < timeoutMs) {
         try {
             if (await checkIsGenerating(cdp)) return true;
-        } catch (e) {}
+        } catch (e) { }
         await new Promise(r => setTimeout(r, 400));
     }
     return false;
@@ -3603,9 +3616,13 @@ client.on('interactionCreate', async interaction => {
         }
     }
 });
+let _lastProcessedMessageId = null;
 client.on('messageCreate', async message => {
     if (!isAuthorizedDiscordUser(message.author)) return;
     if (message.author.bot) return;
+    // Dedup guard: prevent processing same message twice
+    if (message.id === _lastProcessedMessageId) return;
+    _lastProcessedMessageId = message.id;
 
     // Ignore old slash commands that people might manually type
     if (message.content.startsWith('/')) return;
