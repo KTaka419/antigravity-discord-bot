@@ -70,7 +70,11 @@ const DISCORD_ACTIVITY_LOG_TYPES = new Set([
 ]);
 
 function isAuthorizedDiscordUser(user) {
-    if (!ALLOWED_DISCORD_USER) return true;
+    if (!ALLOWED_DISCORD_USER) {
+        // [SECURITY] 許可ユーザーIDが未設定 → 安全のため全員を拒否
+        console.warn('[SECURITY] DISCORD_ALLOWED_USER_ID が .env に設定されていません。全リクエストを拒否します。');
+        return false;
+    }
 
     if (ALLOWED_DISCORD_USER_IS_ID) {
         return user.id === ALLOWED_DISCORD_USER;
@@ -717,15 +721,17 @@ function writeDomDebugHtmlFiles(payload, outPath) {
 
 function writeRawDumpFile(payload) {
     try {
-        const outDir = path.join(process.cwd(), 'debug');
+        const outDir = path.resolve(process.cwd(), 'debug');
         fs.mkdirSync(outDir, { recursive: true });
-        const fileName = RAW_DUMP_FILE
+        // [SECURITY] パストラバーサル防止: ファイル名のみを使用し、常に debug/ 内に書き込む
+        const safeFileName = RAW_DUMP_FILE
             ? path.basename(RAW_DUMP_FILE)
             : `raw_response_${Date.now()}.json`;
-        const outPath = RAW_DUMP_FILE
-            ? (path.isAbsolute(RAW_DUMP_FILE) ? RAW_DUMP_FILE : path.join(process.cwd(), RAW_DUMP_FILE))
-            : path.join(outDir, fileName);
-        fs.mkdirSync(path.dirname(outPath), { recursive: true });
+        const outPath = path.join(outDir, safeFileName);
+        // 二重確認: outPathがoutDir配下であることを保証
+        if (!outPath.startsWith(outDir + path.sep) && outPath !== outDir) {
+            throw new Error(`[SECURITY] Path traversal detected: ${outPath}`);
+        }
         const htmlFiles = writeDomDebugHtmlFiles(payload, outPath);
         fs.writeFileSync(outPath, JSON.stringify(payload, null, 2), 'utf8');
         return { outPath, htmlFiles };
